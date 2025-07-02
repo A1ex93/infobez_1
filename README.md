@@ -2,25 +2,41 @@
 
 # Задание 1
 Устанавлваем VMware Workstation Player (Ubuntu)
+
 sudo apt update
+
 sudo apt install -y build-essential linux-headers-generic
+
 wget --user-agent="Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0" https://www.vmware.com/go/getplayer-linux
+
 sudo chmod +x getplayer-linux
+
 sudo ./getplayer-linux --required --eulas-agreed
 
 Сканируем виртуальную машину
+
 nmap -sSV 172.16.52.128 # инфомация по открытым TCP портам (TCP SYN)
+
 nmap -sTV 172.16.52.128 # инфомация по открытым TCP портам (TCP Connect)
+
 nmap -sAV 172.16.52.128 # инфомация по открытым TCP портам (TCP FIN)
+
 nmap -sUV 172.16.52.128 # инфомация по открытым UDP портам
+
 nmap -sV 172.16.52.128 # инфомация по всем открытым TCP портам
+
 nmap -A 172.16.52.128 # агресивный режим - инфомация по всем открытым TCP портам
 
 Список нескольких уязвимостей
+
 vsftpd 2.3.4 - Backdoor Command Execution
+
 TelnetD encrypt_keyid - Function Pointer Overwrite
+
 ProFTPd IAC 1.3.x - Remote Command Execution
+
 MySQL 5.0.x - IF Query Handling Remote Denial of Service
+
 MySQL 5.0.x - Single Row SubSelect Remote Denial of Service
 
 # Задание 2
